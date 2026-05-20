@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 30% 8%;
+    --foreground: 0 0% 98%;
+    --card: 222 25% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222 25% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 207 100% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 222 15% 20%;
+    --muted-foreground: 222 10% 65%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 222 30% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 15% 22%;
+    --input: 222 15% 22%;
+    --ring: 207 100% 33%;
+    --radius: 0.625rem;
+    --sidebar-background: 222 28% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 207 100% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 20% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 222 15% 22%;
+    --sidebar-ring: 207 100% 33%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  body {
+    overflow-y: auto;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0068a3] via-[#c9a33d] to-[#0068a3];
+  }
+  
+  .bg-gradient-banco {
+    background: linear-gradient(135deg, #0a1628 0%, #0f1d32 40%, #162544 100%);
+  }
+  
+  .bg-glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .gold-accent {
+    color: #c9a33d;
+  }
+  
+  .gold-bg {
+    background-color: #c9a33d;
+  }
+  
+  .blue-accent {
+    color: #0068a3;
+  }
+  
+  .blue-bg {
+    background-color: #0068a3;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a3a5c;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a33d;
+}
+
+/* Chat bubble animations */
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-appear {
+  animation: messageSlideIn 0.3s ease-out forwards;
+}
+
+/* Pulse animation for agent indicators */
+@keyframes agentPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.agent-pulse {
+  animation: agentPulse 2s ease-in-out infinite;
+}
+
+/* Flow line animation */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.flow-line {
+  stroke-dasharray: 8 4;
+  animation: flowDash 1s linear infinite;
+}
+
+/* Shimmer effect for loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201, 163, 61, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
