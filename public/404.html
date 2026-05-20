@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Banco Guayaquil - CreditFlow AI</title>
+    <script>
+      const path = window.location.pathname;
+      const base = '/CreditFlowAI/';
+      if (path !== base && path.startsWith(base)) {
+        sessionStorage.redirect = path.slice(base.length - 1);
+      }
+      window.location.href = base;
+    </script>
+  </head>
+  <body>
+    <p>Redirigiendo...</p>
+  </body>
+</html>
